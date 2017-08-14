@@ -5,8 +5,6 @@ const userController = {};
 userController.post = (req,res) => {
     const { email, password } = req.body;
 
-    //Validation
-
     const user = {
         email,
         password

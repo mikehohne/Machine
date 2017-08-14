@@ -15,14 +15,27 @@ var config = {
 //Controller Imports
 import basicController from './controllers/basicController';
 import userController from './controllers/userController';
+import customerController from './controllers/customerController';
+import orderController from './controllers/orderController';
+import productController from './controllers/productController';
 
 //Basic Routes
 routes.get('/', basicController.getAvatar);
 
 //User Routes
 routes.post('/signup', userController.post);
-routes.get('/login', userController.getLoggedInUser);
+routes.get('/logincheck', userController.getLoggedInUser);
 routes.post('/signin', userController.signIn);
+
+//Customer Routes
+routes.post('/customer', customerController.post);
+
+//Order Routes
+routes.post('/order', orderController.post)
+
+//Product Routes
+routes.post('/product', productController.post)
+
 
 
 
