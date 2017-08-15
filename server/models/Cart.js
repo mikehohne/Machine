@@ -5,6 +5,9 @@ const { Schema } = mongoose;
 mongoose.Promise = global.Promise;
 
 const CartSchema = new Schema({
+    _creator: {
+        type: Schema.ObjectId, ref: 'Contact'
+    },
     dateCreated: {
         type: Date,
         default: Date.now
@@ -12,15 +15,7 @@ const CartSchema = new Schema({
     expired: {
         type: Boolean,
         default: false
-    },
-    _product: {
-        type: Schema.ObjectId, ref: 'Product',
-        required: true
-    },
-    _creator: {
-        type: Schema.ObjectId, ref: 'Contact'
-    },
-    totalPrice: Number
+    }
 })
 
 

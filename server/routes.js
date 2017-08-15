@@ -20,6 +20,8 @@ import orderController from './controllers/orderController';
 import productController from './controllers/productController';
 import contactController from './controllers/contactController';
 import cartController from './controllers/cartController';
+import cartItemController from './controllers/cartItemController';
+
 
 
 
@@ -38,15 +40,21 @@ routes.post('/customer', customerController.post);
 routes.post('/customer/contacts', contactController.post)
 routes.get('/customer/contacts', contactController.getAll)
 
-//Order Routes
-routes.post('/cart/order', orderController.post)
+//Product Routes
+routes.post('/product', productController.post)
 
 //Cart Routes
 routes.post('/cart/', cartController.post)
-routes.get('/cart', cartController.getAll)
+routes.get('/carts', cartController.getAll)
 
-//Product Routes
-routes.post('/product', productController.post)
+//CartItem Routes
+routes.post('/cart/items', cartItemController.post)
+routes.get('/cart/items', cartItemController.getCartItems)
+routes.delete('/cart/items/delete/:id', cartItemController.deleteCartItems)
+
+
+//Order Routes
+routes.post('/cart/order', orderController.post)
 
 
 

@@ -5,13 +5,11 @@ const cartController = {};
 
 cartController.post = (req,res) => {
 
-    const {  userId,
-             productId  } = req.body;
+    const { userId } = req.body;
 
 
     const cart = new db.Cart({
-        _creator: userId,
-        _product: productId
+        _creator: userId
     });
 
     cart.save()
@@ -30,7 +28,7 @@ cartController.post = (req,res) => {
 
 cartController.getAll = (req,res) => {
     db.Cart.find({}).populate({
-        path: '_creator _product'
+        path: '_creator'
     }).then((carts) =>{
         return res.status(200).json({
             success: true,

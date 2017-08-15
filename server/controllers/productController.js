@@ -5,13 +5,13 @@ const productController = {};
 
 productController.post = (req,res) => {
 
-    const {  productName, imageUrl, quantity  } = req.body;
+    const {  productName, imageUrl, stock  } = req.body;
 
 
     const product = new db.Product({
         productName,
         imageUrl,
-        quantity
+        stock
     });
 
     product.save()
