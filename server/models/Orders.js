@@ -12,10 +12,6 @@ const OrderSchema = new Schema({
         //build own npm to check what last order number was and append 1
         default: shortId.generate
     },
-    creator: {
-        type: String,
-        required: true
-    },
     isCheckout: {
         type: Boolean,
         default: false,
@@ -27,7 +23,11 @@ const OrderSchema = new Schema({
     dateCreated: {
         type: Date,
         default: Date.now
-    }
+    },
+    creator: {
+        type: Schema.ObjectId, ref: 'Contact'
+    },
+    totalPrice: Number
 })
 
 

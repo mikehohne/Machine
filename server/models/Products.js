@@ -28,6 +28,7 @@ const ProductSchema = new Schema({
         default: false
     },
     quantity: Number,
+    price: Number,
     dateCreated: {
         type: Date,
         default: Date.now

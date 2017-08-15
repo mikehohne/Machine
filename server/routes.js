@@ -18,6 +18,10 @@ import userController from './controllers/userController';
 import customerController from './controllers/customerController';
 import orderController from './controllers/orderController';
 import productController from './controllers/productController';
+import contactController from './controllers/contactController';
+import cartController from './controllers/cartController';
+
+
 
 //Basic Routes
 routes.get('/', basicController.getAvatar);
@@ -30,8 +34,16 @@ routes.post('/signin', userController.signIn);
 //Customer Routes
 routes.post('/customer', customerController.post);
 
+//Contact Routes
+routes.post('/customer/contacts', contactController.post)
+routes.get('/customer/contacts', contactController.getAll)
+
 //Order Routes
-routes.post('/order', orderController.post)
+routes.post('/cart/order', orderController.post)
+
+//Cart Routes
+routes.post('/cart/', cartController.post)
+routes.get('/cart', cartController.getAll)
 
 //Product Routes
 routes.post('/product', productController.post)
